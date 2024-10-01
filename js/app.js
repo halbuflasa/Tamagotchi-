@@ -14,20 +14,45 @@
 
 // 7) Create reset functionality.
 /*-------------------------------- Constants --------------------------------*/
-
-
-
+const state ={
+    boredom: 0,
+    hunger: 0,
+    sleepiness: 0,
+};
 /*---------------------------- Variables (state) ----------------------------*/
-
-
+let timer;
+let gameOver;
 
 /*------------------------ Cached Element References ------------------------*/
+const  boredomStatEl = document.querySelector('#boredom-stat');
+const  hungerStatEl = document.querySelector('#hunger-stat');
+const  sleepinessStatEl = document.querySelector('sleepiness-stat');
 
+const playBtnEl = document.querySelector('#play');
+const feedBtnEl = document.querySelector('#feed');
+const sleepBtnEl = document.querySelector('#sleep');
 
-
+const gameMessageEl = document.querySelector('#message');
+const resetBtnEl = document.querySelector('#restart');
 /*-------------------------------- Functions --------------------------------*/
+ function init (){
+    gameOver = false;
+    setInterval(runGame,2000);
+    render();
+ }
+ function runGame(){
+    console.log( 'the game is running!');
+ }
+ function render(){
 
-
+ }
+ function updateStates(){
+    const incremeter = Math.floor(Math.random() * 4)
+    state.boredom+=incremeter;
+    state.hunger+= incremeter
+    state.sleepiness+=incremeter;
+ }
+ init();
 
 /*----------------------------- Event Listeners -----------------------------*/
 
